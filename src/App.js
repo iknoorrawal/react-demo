@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from 'react';
+import Card from '@material-ui/core/Card';
+import { makeStyles, Button } from '@material-ui/core';
+import Item from './components/item';
+
+const useStyles = makeStyles(theme => ({
+  card: {
+    width: 300,
+    backgroundColor: 'grey',
+    textAlign: 'center',
+    margin: 'auto',
+
+  },
+  app: {
+    textAlign: 'center',
+  },
+}));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const styles = useStyles();
+
+  function demoIknoor() {
+    setDemo(demo + 1)
+  }
+
+  const [demo, setDemo] = React.useState(0)
+
+  return (
+    <div className={styles.app}>
+      <h1>Esther's Restaurant</h1>
+      <Card>
+        <Card className={styles.card}>
+          <Item name="burger"/>
+          <Item name="burger"/>
+          <Item />
+        </Card>
+      </Card>
+      <Button onClick={demoIknoor}>{demo}</Button>
+    </div>
+  );
 }
 
 export default App;
